@@ -46,7 +46,7 @@ resource "aws_route53_record" "www" {
   }
   allow_overwrite = true
 }
-
+# target group & 
 resource "aws_lb_target_group" "frontend" {
   name     = "${local.common_name}-frontend"
   port     = 80
@@ -66,7 +66,7 @@ resource "aws_lb_target_group" "frontend" {
     unhealthy_threshold = 2
   }
 }
-
+# listner rule
 resource "aws_lb_listener_rule" "frontend" {
   listener_arn = aws_lb_listener.https.arn
   priority     = 10
@@ -78,7 +78,7 @@ resource "aws_lb_listener_rule" "frontend" {
 
   condition {
     host_header {
-      values = ["app1-${var.environment}.${var.domain_name}"] # app1-dev.daws90s.shop
+      values = ["app1-${var.environment}.${var.domain_name}"] # app1-dev.subbudevops.online
     }
   }
 }
@@ -114,7 +114,7 @@ resource "aws_lb_listener_rule" "app2" {
 
   condition {
     host_header {
-      values = ["app2-${var.environment}.${var.domain_name}"] # app2-dev.daws90s.shop
+      values = ["app2-${var.environment}.${var.domain_name}"] # app2-dev.subbudevops.online
     }
   }
 }
