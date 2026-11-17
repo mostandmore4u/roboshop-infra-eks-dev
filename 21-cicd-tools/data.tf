@@ -37,6 +37,25 @@ data "aws_ami" "joindevops" {
     values = ["x86_64"]
   }
 } */
+data "aws_ami" "sonarqube" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "description"
+    values = ["Amazon Linux 2023 AMI 2023.12.20261112.0 x86_64 HVM kernel-6.18"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+}
 
 data "aws_ssm_parameter" "public_subnet_ids" {
     name = "/${var.project}/${var.environment}/public_subnet_ids"
