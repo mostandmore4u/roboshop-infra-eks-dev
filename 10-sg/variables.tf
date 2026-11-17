@@ -17,6 +17,7 @@ variable "sg_names" {
         "bastion",
         "eks_control_plane",
         "eks_node"
+        "jenkins", "jenkins_agent", "sonar" # im using a docker image to spin up sonar community image from dockerhub
         #"vpn"
     ]
 }

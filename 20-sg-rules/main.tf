@@ -102,5 +102,6 @@ resource "aws_security_group_rule" "eks_node_vpc" {
   to_port           = 0
   protocol          = "-1" # All traffic
   cidr_blocks = ["10.0.0.0/16"]
-  security_group_id = local.eks_node_sg_id # if we keep eks_control plane communication not happens and error will come
+  security_group_id = local.eks_node_sg_id # if we keep eks_control plane here communication not happens and error will come, session-61 mishap happened here
 }
+
